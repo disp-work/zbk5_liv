@@ -1,0 +1,68 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.hcc.bk5.liv.controller.Detail"
+	xmlns:f="sap.f" xmlns:l="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml">
+	<uxap:ObjectPageLayout id="ObjectPageLayout" isChildPage="true" alwaysShowContentHeader="true">
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader objectTitle="{LivTxt}" objectSubtitle="{i18n>livInfo.lblLivId}: {LivId}">
+				<uxap:actions>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://decline" type="Transparent" tooltip="{i18n>buttonCloseDetail}"
+						press="onCloseDetailPress"/>
+				</uxap:actions>
+			</uxap:ObjectPageHeader>
+		</uxap:headerTitle>
+		<uxap:headerContent>
+			<l:VerticalLayout>
+				<ObjectStatus text="keine Meldungen" state="Success" icon="sap-icon://complete"/>
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<l:layoutData>
+					<uxap:ObjectPageHeaderLayoutData visibleS="false"/>
+				</l:layoutData>
+				<ObjectStatus title="{i18n>livInfo.lblLivNachn}" text="{LivNachn}"/>
+				<ObjectStatus title="{i18n>livInfo.lblLivVorna}" text="{LivVorna}"/>
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<l:layoutData>
+					<uxap:ObjectPageHeaderLayoutData visibleS="false"/>
+				</l:layoutData>
+				<ObjectStatus title="{i18n>livInfo.lblLivGesch}" text="{LivGesch}"/>
+				<ObjectStatus title="{i18n>livInfo.lblLivGbdat}" text="{LivGbdat}"/>
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<ObjectStatus title="{i18n>lhaInfo.lblLhaTxt}" text="{LivLhaTxt}"/>
+				<ObjectStatus title="{i18n>lhaInfo.lblSubTxt}" text="{LivSubTxt}"/>
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<l:layoutData>
+					<uxap:ObjectPageHeaderLayoutData visibleS="false"/>
+				</l:layoutData>
+				<ObjectStatus title="{i18n>stsInfo.lblStsTxt}" text="{LivStsTxt}"/>
+				<ObjectStatus title="{i18n>stsInfo.lblStsPersa}" text="{LivStsPersa}"/>
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<l:layoutData>
+					<uxap:ObjectPageHeaderLayoutData/>
+				</l:layoutData>
+			</l:VerticalLayout>
+		</uxap:headerContent>
+		<uxap:sections>
+			<uxap:ObjectPageSection title="{i18n>eduInfo.title}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="{i18n>eduInfo.title}" mode="Expanded">
+						<uxap:blocks>
+							<mvc:XMLView viewName="com.hcc.bk5.liv.view.aup" async="true"/>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="{i18n>msgInfo.title}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="{i18n>msgInfo.title}" mode="Expanded">
+						<uxap:blocks>
+							<Text text="{i18n>msgInfo.title}"/>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+</mvc:View>

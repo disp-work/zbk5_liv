@@ -5,5 +5,9 @@ sap.ui.define([
 
 	return Controller.extend("com.hcc.bk5.liv.controller.Main", {
 
+		onInit: function() {
+
+		},
+
 	});
-});flt
+});
