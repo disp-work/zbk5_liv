@@ -12,9 +12,22 @@
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZBK5_AUP_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"valueHelp": {
+				"uri": "",
+				"type": "JSON"
+			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -33,30 +46,72 @@
 		"supportedThemes": [
 			"sap_hcb",
 			"sap_belize"
-
 		]
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "com.hcc.bk5.liv.view.Main",
 			"type": "XML"
 		},
 		"dependencies": {
-			"minUI5Version": "1.30.0",
+			"minUI5Version": "1.52.26",
 			"libs": {
-				"sap.ui.core": {},
+				"sap.collaboration": {},
 				"sap.m": {},
+				"sap.f": {},
+				"sap.ui.comp": {},
+				"sap.ui.core": {},
 				"sap.ui.layout": {},
 				"sap.ushell": {},
-				"sap.collaboration": {},
-				"sap.ui.comp": {},
 				"sap.uxap": {}
 			}
+		},
+		"config": {
+			"fullWidth": true
 		},
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.hcc.bk5.liv.view",
+				"controlId": "fcl",
+				"transition": "slide",
+				"async": true,
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "TargetMaster",
+					"pattern": "",
+					"layout": "OneColumn",
+					"target": [
+						"TargetMaster"
+					]
+				},
+				{
+					"name": "TargetDetail",
+					"pattern": "detail/:LivId:/",
+					"layout": "TwoColumnsMidExpanded",
+					"target": [
+						"TargetMaster",
+						"TargetDetail"
+					]
+				}
+			],
+			"targets": {
+				"TargetMaster": {
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages"
+				},
+				"TargetDetail": {
+					"viewName": "Detail",
+					"controlAggregation": "midColumnPages"
+				}
+			}
 		},
 		"models": {
 			"i18n": {
@@ -64,12 +119,38 @@
 				"settings": {
 					"bundleName": "com.hcc.bk5.liv.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"preload": true
+			},
+			"valueHelp": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "valueHelp",
+				"preload": true
+			},
+			"app": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/app.json",
+				"preload": false
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zbk5_liv/webapp",
+		"_version": "1.1.0"
 	}
 }

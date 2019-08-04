@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.hcc.bk5.liv.controller.Aup"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml">
+	<smartTable:SmartTable entitySet="AupSet" enableAutoBinding="true" useExportToExcel="true" useVariantManagement="true"
+		useTablePersonalisation="true" persistencyKey="LiVAup" demandPopin="false" showTablePersonalisation="true" showRowCount="false"
+		class="sapUiNoContentPadding" tableBindingPath="ToAup" requestAtLeastFields="LivTxt,LivId,MdtTxt,MdtId">
+		<smartTable:customToolbar>
+			<OverflowToolbar design="Transparent" id="OverflowToolbar">
+				<ToolbarSpacer/>
+				<OverflowToolbarButton icon="sap-icon://add" press="onItemAdd" tooltip="{i18n>eduInfo.btnAdd}}"/>
+			</OverflowToolbar>
+		</smartTable:customToolbar>
+		<Table growing="false" fixedLayout="false" mode="Delete">
+			<columns>
+				<Column tooltip="{i18n>livInfo.lblLivTxt}">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "LivTxt","leadingProperty": "LivTxt","sortProperty": "LivTxt","filterProperty": "LivTxt"}'/>
+					</customData>
+					<Text text="{i18n>livInfo.lblLivTxt}"/>
+				</Column>
+				<Column tooltip="{i18n>mdtInfo.lblMdtTxt}}.}">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "MdtTxt","leadingProperty": "MdtTxt","sortProperty": "MdtTxt","filterProperty": "MdtTxt"}'/>
+					</customData>
+					<Text text="{i18n>mdtInfo.lblMdtTxt}"/>
+				</Column>				
+			</columns>
+			<ColumnListItem type="Navigation" press="onItemPress">
+				<cells>
+					<ObjectIdentifier title="{LivTxt}"/>
+					<ObjectIdentifier title="{MdtTxt}"/>
+				</cells>
+			</ColumnListItem>
+		</Table>
+	</smartTable:SmartTable>
+</mvc:View>

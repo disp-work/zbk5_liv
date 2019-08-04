@@ -1,10 +1,6 @@
 <mvc:View controllerName="com.hcc.bk5.liv.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m">
+	displayBlock="true" xmlns="sap.m" xmlns:f="sap.f">
 	<App>
-		<pages>
-			<Page title="{i18n>title}">
-				<content></content>
-			</Page>
-		</pages>
+		<f:FlexibleColumnLayout id="fcl" layout="sap.f.LayoutType.OneColumn"/>
 	</App>
 </mvc:View>
