@@ -78,37 +78,37 @@
 				"routerClass": "sap.f.routing.Router",
 				"viewType": "XML",
 				"viewPath": "com.hcc.bk5.liv.view",
-				"controlId": "fcl",
+				"controlId": "FclLiv",
 				"transition": "slide",
 				"async": true,
 				"clearControlAggregation": false
 			},
 			"routes": [
 				{
-					"name": "TargetMaster",
+					"name": "TargetMasterLiV",
 					"pattern": "",
 					"layout": "OneColumn",
 					"target": [
-						"TargetMaster"
+						"TargetMasterLiV"
 					]
 				},
 				{
-					"name": "TargetDetail",
-					"pattern": "detail/:LivId:/",
+					"name": "TargetDetailLiV",
+					"pattern": "DetailLiV/:LivId:/",
 					"layout": "TwoColumnsMidExpanded",
 					"target": [
-						"TargetMaster",
-						"TargetDetail"
+						"TargetMasterLiV",
+						"TargetDetailLiV"
 					]
 				}
 			],
 			"targets": {
-				"TargetMaster": {
-					"viewName": "Master",
+				"TargetMasterLiV": {
+					"viewName": "MasterLiV",
 					"controlAggregation": "beginColumnPages"
 				},
-				"TargetDetail": {
-					"viewName": "Detail",
+				"TargetDetailLiV": {
+					"viewName": "DetailLiV",
 					"controlAggregation": "midColumnPages"
 				}
 			}
@@ -128,17 +128,6 @@
 					"defaultCountMode": "Request"
 				},
 				"preload": true
-			},
-			"valueHelp": {
-				"type": "sap.ui.model.json.JSONModel",
-				"dataSource": "valueHelp",
-				"preload": true
-			},
-			"app": {
-				"type": "sap.ui.model.json.JSONModel",
-				"settings": {},
-				"uri": "model/app.json",
-				"preload": false
 			}
 		},
 		"resources": {

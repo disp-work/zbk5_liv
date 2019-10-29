@@ -1,6 +1,6 @@
 <mvc:View controllerName="com.hcc.bk5.liv.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m" xmlns:f="sap.f">
 	<App>
-		<f:FlexibleColumnLayout id="fcl" layout="sap.f.LayoutType.OneColumn"/>
+		<f:FlexibleColumnLayout id="FclLiv" layout="sap.f.LayoutType.OneColumn"/>
 	</App>
 </mvc:View>

@@ -1,17 +1,18 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.hcc.bk5.liv.controller.Detail"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.hcc.bk5.liv.controller.DetailLiV"
 	xmlns:f="sap.f" xmlns:l="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml">
-	<uxap:ObjectPageLayout id="ObjectPageLayout" isChildPage="true" alwaysShowContentHeader="true">
+	<uxap:ObjectPageLayout id="OplLiv" isChildPage="true" alwaysShowContentHeader="true">
 		<uxap:headerTitle>
 			<uxap:ObjectPageHeader objectTitle="{LivTxt}" objectSubtitle="{i18n>livInfo.lblLivId}: {LivId}">
 				<uxap:actions>
 					<uxap:ObjectPageHeaderActionButton icon="sap-icon://decline" type="Transparent" tooltip="{i18n>buttonCloseDetail}"
-						press="onCloseDetailPress"/>
+						press=".onCloseDetailPressLiV"/>
 				</uxap:actions>
 			</uxap:ObjectPageHeader>
 		</uxap:headerTitle>
 		<uxap:headerContent>
 			<l:VerticalLayout>
-				<ObjectStatus text="keine Meldungen" state="Success" icon="sap-icon://complete"/>
+				<ObjectStatus text="{ path: 'LivOstId', formatter: '.formatter.getTextForState' }" state="{LivOstId}"
+					icon="{ path: 'LivOstId', formatter: '.formatter.getIconForState' }"/>
 			</l:VerticalLayout>
 			<l:VerticalLayout>
 				<l:layoutData>
@@ -49,7 +50,7 @@
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection title="{i18n>eduInfo.title}" mode="Expanded">
 						<uxap:blocks>
-							<mvc:XMLView viewName="com.hcc.bk5.liv.view.aup" async="true"/>
+							<mvc:XMLView viewName="com.hcc.bk5.liv.view.AupLiV" async="true"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>

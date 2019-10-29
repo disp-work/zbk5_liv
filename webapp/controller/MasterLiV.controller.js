@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("com.hcc.bk5.liv.controller.Master", {
+	return Controller.extend("com.hcc.bk5.liv.controller.MasterLiV", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -13,12 +13,12 @@ sap.ui.define([
 		onInit: function() {
 		},
 
-		onItemPress: function(oEvent) {
+		onItemPressLiV: function(oEvent) {
 			var oElement = oEvent.getSource();
 			var sObjectPath = oElement.getBindingContextPath();
 			var sLivId = oElement.getModel().getData(sObjectPath).LivId;
 
-			this.getOwnerComponent().getRouter().navTo("TargetDetail", {
+			this.getOwnerComponent().getRouter().navTo("TargetDetailLiV", {
 				LivId: sLivId
 			});
 		}
